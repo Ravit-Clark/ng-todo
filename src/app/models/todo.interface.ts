@@ -3,4 +3,5 @@ export interface ITodo{
     description: string;
     isComplete: boolean;
     deadline: Date;
+    isDelete: boolean;
 }

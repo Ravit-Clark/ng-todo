@@ -1,15 +1,30 @@
-<div class="mainList">
+<div class="main">
 
+<div class="mainList" >
+
+  <div class="forlist"  *ngFor="let todo of todoList; let i = index">
   
-  <mat-card appearance="outlined">    
-    <mat-card-actions>
-    </mat-card-actions>
-  </mat-card>
+    <mat-card 
+      class="unitTodo" 
+      (click)="onClickList(i)"
+      appearance="outlined">    
+        <mat-card-title> {{todo.title}}</mat-card-title>
+        <!-- <mat-card-subtitle> {{todo.description}}</mat-card-subtitle> אפשר ברשימה לעשות כמה זמן נשאר או הסתיים--> 
+        <div class="dateAndButton">
+          <mat-card-subtitle [style.display]="!todo.isComplete ? 'block' : 'none'">{{todo.deadline | date}}</mat-card-subtitle>       
+          <mat-icon [style.display]="todo.isComplete ? 'block' : 'none'" >check_circle</mat-icon>
+        </div>
+    </mat-card>
+    <mat-divider class="line"></mat-divider>
 
-  <mat-card appearance="outlined">    
-    <mat-card-actions>
-    </mat-card-actions>
-  </mat-card>
+  </div> 
+</div>
+<div class="appTodo">
 
-  
+  <app-todo  [_todo]="todoList" [_index]="index"  ></app-todo> 
+
+
+</div>
+
+
 </div>

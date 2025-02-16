@@ -1,0 +1,31 @@
+<div class="main">
+    <form class="formAria" #f="ngForm" (ngSubmit)="newTodo()">
+
+        <h2>Add New Task:</h2>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Todo Name: </mat-label>
+            <input ngModel name="title" matInput placeholder="What is your task?"  >
+          </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Todo Discrition: </mat-label>
+            <input ngModel name="description" matInput placeholder="Describe the task.."  >
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Deadline</mat-label>
+            <input ngModel name="deadline" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+  
+       
+      <button mat-flat-button type="submit">Add</button>
+
+</form>
+</div>
+
+
+
